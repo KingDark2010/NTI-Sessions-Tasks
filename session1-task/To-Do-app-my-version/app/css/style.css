@@ -1,0 +1,21 @@
+.h1,
+.form-control{
+    margin: 5vh;
+    width: 60vw;
+}
+
+.btn,
+.border,
+.table,
+.h4 {
+    margin-left: 5vh;
+    margin-bottom: 5vh;
+}
+
+.table{
+    width: 60vw;
+}
+
+.left-btn {
+    text-align: right;
+}
