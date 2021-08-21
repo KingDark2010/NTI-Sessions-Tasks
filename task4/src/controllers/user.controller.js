@@ -41,7 +41,7 @@ class Bank {
             name: userName,
             email: userEmail,
             password: userPassword,
-            userstatus: false,
+            active: true,
             balance: userBalance
         };
         this.readData();
@@ -68,10 +68,10 @@ class Bank {
         this.readData();
         let myIndex = this.isRegistered(userEmail);
         if(myIndex){
-            if(this.bankData[myIndex.index].userstatus == true){
-                this.bankData[myIndex.index].userstatus = false;
+            if(this.bankData[myIndex.index].active == true){
+                this.bankData[myIndex.index].active = false;
             }else{
-                this.bankData[myIndex.index].userstatus = true;
+                this.bankData[myIndex.index].active = true;
             }
             this.writeData();
         }
@@ -81,7 +81,7 @@ class Bank {
         this.readData();
         let myIndex = this.isRegistered(userEmail);
         if(myIndex){
-            if(this.bankData[myIndex.index].userstatus == true){
+            if(this.bankData[myIndex.index].active == true){
                 if(amount <= 10000){
                     this.bankData[myIndex.index].balance += amount;
                     this.writeData();
@@ -94,7 +94,7 @@ class Bank {
         this.readData();
         let myIndex = this.isRegistered(userEmail);
         if(myIndex){
-            if(this.bankData[myIndex.index].userstatus == true){
+            if(this.bankData[myIndex.index].active == true){
                 if(amount <= this.bankData[myIndex.index].balance && amount <= 5000){
                     this.bankData[myIndex.index].balance -= amount;
                     this.writeData();

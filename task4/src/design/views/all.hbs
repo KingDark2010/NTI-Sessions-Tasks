@@ -26,8 +26,13 @@
                     <td>{{this.email}}</td>
                     <td>{{this.balance}}</td>
                     <td>
-                        <a href="edit/{{this.email}}" class="waves-effect waves-light pink lighten-2 btn-small">edit</a>
-                        <a href="delete/{{this.email}}"class="waves-effect waves-light red darken-2 btn-small">delete</a>
+                        {{#if this.active}}
+                        <a href="status/{{this.email}}" class="waves-effect waves-light pink lighten-2 btn-small">Deactivate</a>
+                        {{else}}
+                        <a href="status/{{this.email}}" class="waves-effect waves-light pink lighten-2 btn-small">Activate</a>
+                        {{/if}}
+                        <a href="edit/{{this.email}}" class="waves-effect waves-light pink lighten-2 btn-small">Edit</a>
+                        <a href="delete/{{this.email}}"class="waves-effect waves-light red darken-2 btn-small">Delete</a>
                     </td>
                 </tr>
                 {{/each}}

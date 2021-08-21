@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     res.render('all', {
         title: 'All Clients',
         clients: myClients,
-        isEmpty: myClients.length === 0
+        isEmpty: myClients.length === 0,
     })
 })
 
@@ -25,6 +25,17 @@ router.post('/add', (req, res) => {
 //delete user
 router.get('/delete/:email', (req, res) => {
     bank.deleteUser(req.params.email)
+    res.redirect('/')
+})
+
+router.get('/edit/:email', (req, res) => {
+    dataIndex = bank.isRegistered(req.params.email);
+    res.render('edit', {title:"edit", userData: dataIndex})
+})
+
+//change user status
+router.get('/status/:email', (req, res) => {
+    bank.setUserStatus(req.params.email)
     res.redirect('/')
 })
 
